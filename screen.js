@@ -7,13 +7,7 @@ function clearScreen() {
 }
 
 function startScreen() {
-    window.addEventListener("keydown", (e) => {
-        if (e.code === "Space") {
-            e.preventDefault();
-            clearScreen();
-            return startGame()
-        }
-    });
+    
     ctx.beginPath();
     ctx.lineWidth = 4;
     ctx.strokeStyle = "black";
@@ -22,6 +16,15 @@ function startScreen() {
     ctx.fill();
     ctx.stroke();
 
+    window.addEventListener("keydown", (e) => {
+        if (e.code === "Space") {
+            e.preventDefault();
+            clearScreen();
+            console.log("space has been pressed.")
+            return startGame();
+        }
+    });
+
     //MAKE UPDATE AND RENDER LOOPS BEFORE GETTING TOO FAR.
 
     //ADD BUTTONS FOR THE START SCREEN THROUGH OTHER HTML ELEMENTS IN ABSOLUTE POSITIONS INSTEAD OF GETTING A MOUSE EVENT ON THE CANVAS.
@@ -29,7 +32,7 @@ function startScreen() {
 }
 
 function startGame() {
-
+    console.log("Game started.")
     class Player {
 
         constructor(x, y) {
@@ -51,13 +54,15 @@ function startGame() {
         //TEST AND CREATE AND UPDATE AND RENDER LOOP BEFORE FINALISING EVERYTHING.
         
     }
-    /*ctx.beginPath();
+
+    //console.log(screenCanvas.innerWidth);
+    ctx.beginPath();
     ctx.lineWidth = 8;
     ctx.strokeStyle = "black";
     ctx.fillStyle = "gray";
     ctx.rect(300, 200, 400, 200);
     ctx.fill();
-    ctx.stroke();*/
+    ctx.stroke();
 }
 
 startScreen();
